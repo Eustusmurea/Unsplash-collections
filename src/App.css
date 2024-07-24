@@ -32,3 +32,15 @@
   width: 20px;
   height: 20px;
 }
+
+.dark .background {
+  background-color: #1a202c;
+}
+
+.dark .search-input {
+  border: 1px solid #4a5568;
+}
+
+.dark input::placeholder {
+  color: #a0aec0;
+}
