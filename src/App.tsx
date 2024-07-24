@@ -9,7 +9,7 @@ export const ImageContext = React.createContext({});
 
 function App() {
   const { response, isLoading, error, fetchData } = useAxios(
-    `search/photos?page=1&query=office&client_id=${process.env.REACT_APP_ACCESS_KEY}`
+    `search/photos?page=1&query=office&client_id=${process.env.VITE_REACT_APP_ACCESS_KEY}`
   );
 
   const value = { response, isLoading, error, fetchData };
