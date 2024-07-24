@@ -1,4 +1,3 @@
-// ImageGrid.tsx
 import React from "react";
 import ImageWithLoader from "./ImageWithLoader";
 
