@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { ImageContext } from "@/App";
 import Image from "@/pages/image";
 import Skeleton from "./Skeleton";

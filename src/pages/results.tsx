@@ -13,9 +13,6 @@ const Results = () => {
       <div className="results">
         <Images />
       </div>
-      {/* <div className="p-4">
-        <ImageGrid images={images} />
-      </div> */}
     </div>
   );
 };

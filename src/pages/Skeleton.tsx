@@ -1,5 +1,3 @@
-import React from "react";
-
 const Skeleton = ({ item }) => {
   return [...Array(item).keys()].map((_, index) => (
     <div key={index} className="animate-pulse">
