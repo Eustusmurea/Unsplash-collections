@@ -1,4 +1,3 @@
-import React from "react";
 import Search from "../components/Searchbar";
 import Images from "../pages/Images";
 
