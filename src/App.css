@@ -1,4 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-  
+
+.background {
+  background-image: url(./assets/hero-image.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+@media (max-width: 1040px) {
+  .background {
+    background-size: contain;
+  }
+}
+
+.search-input {
+  outline: none;
+  border: 1px solid #e5e7eb;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.dark .background {
+  background-color: #1a202c;
+}
+
+.dark .search-input {
+  border: 1px solid #4a5568;
+}
+
+.dark input::placeholder {
+  color: #a0aec0;
+}
+
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}

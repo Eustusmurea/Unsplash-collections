@@ -1,11 +1,27 @@
-import { useState } from "react";
-import "./App.css";
+import React from "react";
+import Navbar from "./components/navbar";
 import Home from "./pages/home";
+import Results from "./pages/results";
+import useAxios from "./hooks/useAxios";
+
+// Context
+export const ImageContext = React.createContext({});
 
 function App() {
-  const [count, setCount] = useState(0);
+  const { response, isLoading, error, fetchData } = useAxios(
+    `search/photos?page=1&query=office&client_id=${process.env.VITE_REACT_APP_ACCESS_KEY}`
+  );
 
-  return <Home />;
+  const value = { response, isLoading, error, fetchData };
+  console.log(response);
+
+  return (
+    <ImageContext.Provider value={value}>
+      <Navbar />
+      <Home />
+      <Results />
+    </ImageContext.Provider>
+  );
 }
 
 export default App;

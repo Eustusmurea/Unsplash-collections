@@ -1,12 +1,11 @@
-import React from "react";
-import Search from "../components/search";
+import Images from "./Images";
 
-const results = () => {
+const Results = () => {
   return (
-    <div>
-      <Search />
+    <div className="results">
+      <Images />
     </div>
   );
 };
 
-export default results;
+export default Results;
