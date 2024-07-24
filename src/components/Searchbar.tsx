@@ -4,7 +4,6 @@ import { ImageContext } from "@/App";
 
 const Searchbar = () => {
   const [searchValue, setSearchValue] = useState("");
-
   const { fetchData } = useContext(ImageContext);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
