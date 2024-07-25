@@ -1,8 +1,15 @@
-import { AxiosRequestConfig } from "axios";
+export interface Photo {
+  id: string;
+  urls: {
+    small: string;
+    regular: string;
+  };
+  alt_description: string;
+}
 
 export interface ImageContextType {
-  response: any[];
+  response: Photo[] | null;
   isLoading: boolean;
-  error: string;
-  fetchData: (customUrl?: string, customConfig?: AxiosRequestConfig) => void;
+  error: any;
+  fetchData: () => void;
 }

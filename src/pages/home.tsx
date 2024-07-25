@@ -1,8 +1,14 @@
 import { useState } from "react";
 import "./../App.css";
 import Searchbar from "@/components/Searchbar";
+import Results from "./results";
+import { Photo } from "./types";
 
-const Home = () => {
+interface HomeProps {
+  photos: Photo[];
+}
+
+const Home: React.FC<HomeProps> = ({ photos }) => {
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
@@ -26,6 +32,10 @@ const Home = () => {
         </p>
         <div>
           <Searchbar />
+        </div>
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl font-bold mb-8">Unsplash Collections</h1>
+          <Results photos={photos} />
         </div>
       </div>
     </div>

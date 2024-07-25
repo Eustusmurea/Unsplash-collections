@@ -1,28 +1,35 @@
-import React, { useContext } from "react";
-import { ImageContext } from "@/App";
-import Image from "@/components/image";
-import Skeleton from "../components/Skeleton";
-import { ImageContextType } from "@/pages/types";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Results from "./results";
+import { Photo } from "./types";
 
-const Images = () => {
-  const context = useContext<ImageContextType | undefined>(ImageContext);
+const Images: React.FC = () => {
+  const [photos, setPhotos] = useState<Photo[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  if (!context) {
-    throw new Error(
-      "ImageContext must be used within an ImageContext.Provider"
-    );
-  }
+  useEffect(() => {
+    const fetchPhotos = async () => {
+      try {
+        const response = await axios.get(
+          "https://api.unsplash.com/photos/?client_id=h1YylPE0VA-wM4FfOEsTiMEJVPt_PACB3-2i0PhAoYA"
+        );
+        setPhotos(response.data);
+      } catch (error) {
+        console.error("Error fetching photos:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const { response, isLoading } = context;
+    fetchPhotos();
+  }, []);
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 my-10">
-      {isLoading ? (
-        <Skeleton item={10} />
-      ) : response && response.length > 0 ? (
-        response.map((data, key) => <Image key={key} data={data} />)
+    <div>
+      {loading ? (
+        <div className="text-center mt-8">Loading...</div>
       ) : (
-        <p>No images found</p>
+        <Results photos={photos} />
       )}
     </div>
   );
