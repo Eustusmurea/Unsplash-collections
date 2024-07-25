@@ -1,10 +1,12 @@
+// src/hooks/useAxios.ts
 import { useEffect, useState, useCallback } from "react";
 import axios, { AxiosRequestConfig } from "axios";
+import { ImageContextType } from "@/pages/types";
 
 const useAxios = (
   initialUrl: string,
   initialConfig: AxiosRequestConfig = {}
-) => {
+): ImageContextType => {
   const [url, setUrl] = useState<string>(initialUrl);
   const [config, setConfig] = useState<AxiosRequestConfig>(initialConfig);
   const [response, setResponse] = useState<any[]>([]);
@@ -34,15 +36,7 @@ const useAxios = (
     fetchData();
   }, [fetchData]);
 
-  const updateUrl = (newUrl: string) => {
-    setUrl(newUrl);
-  };
-
-  const updateConfig = (newConfig: AxiosRequestConfig) => {
-    setConfig((prevConfig) => ({ ...prevConfig, ...newConfig }));
-  };
-
-  return { response, isLoading, error, fetchData, updateUrl, updateConfig };
+  return { response, isLoading, error, fetchData };
 };
 
 export default useAxios;
